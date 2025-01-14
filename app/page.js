@@ -54,13 +54,13 @@ const LandingPage = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-blue-50">
+      <section className="py-20 bg-pink-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {howItWorksData.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   {step.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{step.title}</h3>
@@ -91,7 +91,7 @@ const LandingPage = () => {
                     />
                     <div className="ml-4">
                       <div className="font-semibold">{testimonial.name}</div>
-                      <div className="text-sm text-gray-600">
+                      <div className="text-sm text-pink-600">
                         {testimonial.role}
                       </div>
                     </div>
@@ -110,14 +110,14 @@ const LandingPage = () => {
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Take Control of Your Finances?
           </h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-blue-pink mb-8 max-w-2xl mx-auto">
             Join thousands of users who are already managing their finances
             smarter with Welth
           </p>
           <Link href="/dashboard">
             <Button
               size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50 animate-bounce"
+              className="bg-white text-pink-600 hover:bg-blue-50 animate-bounce"
             >
               Start Free Trial
             </Button>
