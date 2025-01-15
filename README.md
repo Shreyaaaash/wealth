@@ -3,6 +3,14 @@
 ![Finance Platform](https://img.shields.io/badge/AI-Finance-blue?style=for-the-badge)  
 🚀 **Track your expenses, manage budgets, and get AI-driven financial insights all in one place!**
 
+
+
+![image](https://github.com/user-attachments/assets/f877bd4d-1d54-447b-a3a8-7a0bf3896772)
+
+
+![image](https://github.com/user-attachments/assets/34eff9c6-3003-48f9-aa0d-810241fad0c4)
+
+
 ---
 
 ## 🌟 Features
