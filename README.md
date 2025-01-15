@@ -1,40 +1,82 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 💸 AI Finance Platform
 
-## Getting Started
+![Finance Platform](https://img.shields.io/badge/AI-Finance-blue?style=for-the-badge)  
+🚀 **Track your expenses, manage budgets, and get AI-driven financial insights all in one place!**
 
-First, run the development server:
+---
 
+## 🌟 Features
+- 📊 **Expense Tracking**: Easily monitor your spending habits and gain insights.  
+- 🧮 **Budget Management**: Set and maintain budgets with smart recommendations.  
+- 🤖 **AI-Powered Reports**: Generate monthly financial reports with AI assistance.  
+- 📈 **Interactive Visualizations**: Understand your finances better with data visualizations.  
+- 📝 **Receipt Scanning**: Quickly digitize and analyze your expenses from receipts.
+
+---
+
+## 🔗 Deployed Link
+🌐 Check out the live project here:  
+[**AI Finance Platform**](https://wealth-fr8k-shreyashs-projects-be32cdc9.vercel.app/)  
+
+---
+
+## 🛠️ Tech Stack
+- **Frontend**:  
+  - Next.js ⚡  
+  - Tailwind CSS 🎨  
+  - Shadcn UI 🌟  
+
+- **Backend**:  
+  - Prisma 💾  
+  - Gemini AI 🤖  
+
+- **Database**:  
+  - PostgreSQL 🐘  
+
+- **Additional Tools**:  
+  - Chart.js 📊  
+  - Formik 📋
+
+---
+
+## ⚙️ Installation Instructions
+
+Follow these steps to run the project locally:
+### 1️⃣ Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Shreyaaaash/wealth.git
+cd wealth
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 2️⃣ Install Dependencies
+Use the following command to install all required packages:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install --legacy-peer-deps
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 How to Use
+1. 🌐 Visit the deployed application.  
+2. 🖊️ Sign up or log in to access your personal dashboard.  
+3. 💼 Start tracking expenses, setting budgets, and exploring AI-driven insights.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Contributions
+Contributions are welcome! 🎉  
+Feel free to open a PR or create an issue for any feature requests or bugs.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📧 Contact
+For questions, suggestions, or support, feel free to reach out:
 
-## Deploy on Vercel
+- **Email**: [iamshreyash.nikam@gmail.com](mailto:iamshreyash.nikam@gmail.com)  
+- **GitHub**: [Shreyaaaash](https://github.com/Shreyaaaash)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# wealth
->>>>>>> 310750fe346d258286ed785738158800c2b6d92d
+🌟 **Thank you for exploring the AI Finance Platform!** 🌟
+
+
+
