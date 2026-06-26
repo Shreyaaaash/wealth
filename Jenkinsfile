@@ -1,26 +1,22 @@
 pipeline {
     agent any
 
-    environment {
-        IMAGE_NAME = "your-dockerhub-username/your-app"
-        IMAGE_TAG  = "${BUILD_NUMBER}"
-        REGISTRY_CREDENTIALS = credentials('dockerhub-creds')
+    tools {
+        nodejs 'NodeJS'   // must match the name you set in Jenkins Tools
     }
 
-    tools {
-        nodejs 'NodeJS-20'   // must match name in Global Tool Config
+    environment {
+        SONAR_TOKEN = credentials('sonar-token')  // credential ID you saved earlier
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
-                echo "Branch: ${env.BRANCH_NAME} | Build: ${env.BUILD_NUMBER}"
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install') {
             steps {
                 sh 'npm ci'
             }
@@ -28,56 +24,36 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'npm test'
+                sh 'npm test -- --coverage'
             }
-            post {
-                always {
-                    junit '**/test-results/*.xml'   // if you output JUnit XML
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {  // must match name in Jenkins System config
+                    sh '''
+                        sonar-scanner \
+                          -Dsonar.login=$SONAR_TOKEN
+                    '''
                 }
             }
         }
 
-        stage('Build') {
+        stage('Quality Gate') {
             steps {
-                sh 'npm run build'
-            }
-        }
-
-        stage('Docker Build & Push') {
-            steps {
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
-                        def image = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
-                        image.push()
-                        image.push('latest')  // also tag as latest
-                    }
-                }
-            }
-        }
-
-        stage('Deploy to Kubernetes') {
-            steps {
-                withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-                    sh """
-                        kubectl set image deployment/your-app \
-                            your-app=${IMAGE_NAME}:${IMAGE_TAG} \
-                            --namespace=production
-                        kubectl rollout status deployment/your-app \
-                            --namespace=production \
-                            --timeout=120s
-                    """
+                timeout(time: 2, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
     }
 
     post {
-        success {
-            echo "✅ Deployment successful — image: ${IMAGE_NAME}:${IMAGE_TAG}"
-        }
         failure {
-            echo "❌ Pipeline failed — check logs above"
-            // add email/Slack notification here
+            echo 'Pipeline failed — check test or quality gate results.'
+        }
+        success {
+            echo 'All stages passed!'
         }
     }
 }
